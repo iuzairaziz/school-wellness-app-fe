@@ -1,0 +1,22 @@
+.header {
+  background-color: var(--color-primary) !important;
+  .bg-light {
+    background-color: var(--color-primary) !important;
+  }
+  .navbar {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin: 0 !important;
+  }
+  .logout-logo {
+    // margin-right: 3rem;
+    // color: #c5971d !important;
+    color: black !important;
+    cursor: pointer;
+  }
+  .Logout {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+}

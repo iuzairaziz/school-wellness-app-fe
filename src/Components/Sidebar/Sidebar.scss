@@ -1,0 +1,55 @@
+@import "~react-pro-sidebar/dist/scss/styles.scss";
+@import "../../Theming/theming.scss";
+
+$sidebar-bg-color: #fec208 !default;
+
+.pro-sidebar {
+  position: absolute !important;
+}
+
+.pro-sidebar > .pro-sidebar-inner {
+  background: var(--color-primary) !important;
+  color: black !important;
+}
+
+.pro-sidebar
+  .pro-menu.shaped
+  .pro-menu-item
+  > .pro-inner-item
+  > .pro-icon-wrapper {
+  background-color: var(--color-primary) !important;
+  color: black !important;
+}
+
+.ham-bt {
+  float: right;
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+  cursor: pointer;
+}
+.text-dashboard {
+  display: block;
+}
+
+.text-dashboard-hide {
+  display: none;
+}
+
+.pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item {
+  position: relative;
+  background-color: var(--color-primary) !important;
+}
+
+.pro-sidebar.collapsed
+  .pro-menu
+  > ul
+  > .pro-menu-item.pro-sub-menu
+  > .pro-inner-list-item
+  > .popper-inner {
+  max-height: 100vh;
+  overflow-y: auto;
+  background-color: var(--color-primary) !important;
+  padding-left: 20px;
+  border-radius: 4px;
+}

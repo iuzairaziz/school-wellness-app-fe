@@ -1,0 +1,15 @@
+.add-admin {
+  .heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .add-bt {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.table {
+  margin: 30px;
+}
