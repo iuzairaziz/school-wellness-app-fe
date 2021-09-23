@@ -9,7 +9,7 @@ const Optout = () => {
     <div className="cotainer greeting">
       <div className="row">
         <div class="col-md-6 logo">
-          <img src={Logo} height="180" width="450" alt="logo" />
+          <img src={Logo} height="250" width="250" alt="logo" />
         </div>
       </div>
       <div className="row mt-2">
