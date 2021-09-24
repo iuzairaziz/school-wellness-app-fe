@@ -23,7 +23,7 @@ class UserServices {
   }
 
   deleteUsers(id) {
-    return axios.delete(this.config.apiBaseUrl + "users/" + id);
+    return axios.delete(this.config.apiBaseUrl + "user/" + id);
   }
 
   updateAllUserFields = (id) =>

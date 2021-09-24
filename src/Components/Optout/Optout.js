@@ -13,7 +13,7 @@ const Optout = () => {
         </div>
       </div>
       <div className="row mt-2">
-        <h1>Thank you for using our service</h1>
+        <h1 className="thanks">Thank you for using our service</h1>
       </div>
       <div className="row mt-3">
         <Link to="/consentform">

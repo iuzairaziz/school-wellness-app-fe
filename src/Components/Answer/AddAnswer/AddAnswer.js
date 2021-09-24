@@ -117,7 +117,7 @@ const AddAnswer = (props) => {
                 Your health and well-being are of the upmost importance and we
                 are taking measures to keep our location a safe environment for
                 all who enter. Therefore, anyone coming into this location will
-                be sc reened to include taking your temperature and asking the
+                be screened to include taking your temperature and asking the
                 following wellness questions
               </h6>
               {data.map((item, index) => {

@@ -131,7 +131,11 @@ const ConsentForm = (props) => {
               <div class="card card-sty">
                 <div class="card-body">
                   <div class="mb-3 row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">
+                    <label
+                      for="staticEmail"
+                      class="col-sm-2 col-form-label alignn"
+                      // className="alignn"
+                    >
                       Last Name
                     </label>
                     <div class="col-sm-9">
@@ -151,7 +155,10 @@ const ConsentForm = (props) => {
                     </div>
                   </div>
                   <div class="mb-3 row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">
+                    <label
+                      for="staticEmail"
+                      class="col-sm-2 col-form-label alignn"
+                    >
                       First Name
                     </label>
                     <div class="col-sm-9">
@@ -171,7 +178,10 @@ const ConsentForm = (props) => {
                     </div>
                   </div>
                   <div class="mb-3 row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">
+                    <label
+                      for="staticEmail"
+                      class="col-sm-2 col-form-label alignn"
+                    >
                       Email
                     </label>
                     <div class="col-sm-9">
@@ -192,17 +202,18 @@ const ConsentForm = (props) => {
                   </div>
                 </div>
               </div>
-              <div className="row"></div>
-              <div class="card col-8 add-fam">
-                <span className="mb-2">
-                  <b>Student(s)</b>
-                </span>
-                <div class="input-group mb-3">
-                  <InputList
-                    setFamilyDetails={setFamilyDetails}
-                    familyDetails={familyDetails}
-                    // editable={editable}
-                  />
+              <div className="row">
+                <div class="card col-12 add-fam">
+                  <span className="mb-2">
+                    <b>Student(s)</b>
+                  </span>
+                  <div class="input-group mb-3">
+                    <InputList
+                      setFamilyDetails={setFamilyDetails}
+                      familyDetails={familyDetails}
+                      // editable={editable}
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -244,7 +255,6 @@ const ConsentForm = (props) => {
         />
       </div>
     </div>
-    // </div>
   );
 };
 

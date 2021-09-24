@@ -5,34 +5,95 @@ import { Link } from "react-router-dom";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import AddAdmin from "../AddAdmin/AddAdmin";
 import adminServices from "../../../services/adminService";
+import { MDBDataTableV5, MDBBtn } from "mdbreact";
+import { MdDelete } from "react-icons/md";
 
 const ViewAdmin = (props) => {
   const [modalEdit, setModalEdit] = useState(false);
+  const [modalDelete, setModalDelete] = useState(false);
+
   const toggleEdit = () => setModalEdit(!modalEdit);
-  const [data, setDataa] = useState([]);
+  const toggleDelete = () => setModalDelete(!modalDelete);
+
+  // const [data, setDataa] = useState([]);
+  const [selectedAdmin, setSelectedAdmin] = useState({ name: "" });
 
   const LoggedUser = adminServices.userLoggedInInfo();
-  console.log("user", LoggedUser);
+  const [dataa, setData] = useState({
+    columns: [
+      {
+        label: "#",
+        field: "title",
+        sort: "asc",
+      },
+      {
+        label: "Last Name",
+        field: "lastName",
+        sort: "asc",
+      },
+      {
+        label: "First Name",
+        field: "firstName",
+        sort: "asc",
+      },
+      {
+        label: "Username",
+        field: "email",
+        // sort: "asc",
+      },
+      {
+        label: "Action",
+        field: "action",
+      },
+    ],
+    rows: [],
+  });
+
+  const handleDelete = (id) => {
+    adminServices
+      .deleteUsers(id)
+      .then((res) => {
+        adminServices.handleMessage("delete");
+        toggleDelete();
+      })
+      .catch((err) => {
+        adminServices.handleError();
+        toggleDelete();
+      });
+  };
 
   useEffect(() => {
     getUser();
-  }, [modalEdit]);
+  }, [modalEdit, modalDelete]);
 
   const getUser = () => {
     adminServices
       .getUsers()
       .then((res) => {
-        let dataa = [];
+        let data = { ...dataa };
+        data.rows = [];
         res.data.map((item, index) => {
-          dataa.push({
+          data.rows.push({
             id: item._id,
+            title: index + 1,
             email: item.email ? item.email : "none",
             lastName: item.lastName ? item.lastName : "none",
             firstName: item.firstName ? item.firstName : "none",
+            action: (
+              <div className="row flex-nowrap">
+                <MdDelete
+                  className="mdi mdi-delete-forever iconsS my-danger-icon"
+                  onClick={() => {
+                    setSelectedAdmin(item);
+                    toggleDelete();
+                  }}
+                />
+              </div>
+            ),
           });
         });
-        console.log("data", dataa);
-        setDataa(dataa);
+        // console.log("data", dataa);
+        setData(data);
       })
       .catch((err) => {
         console.log(err);
@@ -60,35 +121,42 @@ const ViewAdmin = (props) => {
         </div>
       ) : null}
 
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Last Name</th>
-            <th>First Name</th>
-
-            <th>Username</th>
-          </tr>
-        </thead>
-        {data.map((item, index) => {
-          return (
-            <tbody>
-              <tr>
-                <td>{index + 1}</td>
-                <td>{item.lastName}</td>
-                <td>{item.firstName}</td>
-
-                <td>{item.email}</td>
-              </tr>
-            </tbody>
-          );
-        })}
-      </Table>
+      <MDBDataTableV5
+        responsive
+        striped
+        onPageChange={(val) => console.log(val)}
+        bordered={true}
+        materialSearch
+        searchTop
+        searchBottom={false}
+        hover
+        data={dataa}
+        theadColor="#000"
+      />
       <Modal isOpen={modalEdit} toggle={toggleEdit}>
         <ModalHeader toggle={toggleEdit}>Add New Admin</ModalHeader>
         <ModalBody>
           <AddAdmin />
         </ModalBody>
+      </Modal>
+      <Modal isOpen={modalDelete} toggle={toggleDelete}>
+        <ModalHeader toggle={toggleDelete}>Delete Admin?</ModalHeader>
+        <ModalBody>
+          Are you sure you want to delete the Admin "{selectedAdmin.firstName}"?
+        </ModalBody>
+        <ModalFooter>
+          <Button
+            color="primary"
+            onClick={() => {
+              handleDelete(selectedAdmin._id);
+            }}
+          >
+            Yes
+          </Button>{" "}
+          <Button color="secondary" onClick={toggleDelete}>
+            No
+          </Button>
+        </ModalFooter>
       </Modal>
     </div>
   );

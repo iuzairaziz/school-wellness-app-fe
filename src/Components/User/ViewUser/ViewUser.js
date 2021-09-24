@@ -8,12 +8,19 @@ import userServices from "../../../services/userService";
 import { CSVLink } from "react-csv";
 import { MDBDataTableV5, MDBBtn } from "mdbreact";
 import moment from "moment";
+import { MdDelete } from "react-icons/md";
 
 const ViewUser = (props) => {
   const [modalEdit, setModalEdit] = useState(false);
+  const [modalDelete, setModalDelete] = useState(false);
+
   const toggleEdit = () => setModalEdit(!modalEdit);
+  const toggleDelete = () => setModalDelete(!modalDelete);
+
   const [familyData, setFamilyData] = useState();
   const [csvData, setCsvData] = useState("");
+  const [selectedUsers, setSelectedUsers] = useState({ name: "" });
+
   const [dataa, setData] = useState({
     columns: [
       {
@@ -46,14 +53,30 @@ const ViewUser = (props) => {
         field: "recieveEmail",
         sort: "asc",
       },
+      {
+        label: "Action",
+        field: "action",
+      },
     ],
     rows: [],
   });
 
-  console.log("fam data", familyData);
+  const handleDelete = (id) => {
+    userServices
+      .deleteUsers(id)
+      .then((res) => {
+        userServices.handleMessage("delete");
+        toggleDelete();
+      })
+      .catch((err) => {
+        userServices.handleError();
+        toggleDelete();
+      });
+  };
+
   useEffect(() => {
     getAdmin();
-  }, [modalEdit]);
+  }, [modalEdit, modalDelete]);
 
   const getAdmin = () => {
     userServices
@@ -80,6 +103,18 @@ const ViewUser = (props) => {
                   );
                 })
               : "none",
+            action: (
+              <div className="row flex-nowrap">
+                <MdDelete
+                  size={25}
+                  className="mdi mdi-delete-forever iconsS my-danger-icon"
+                  onClick={() => {
+                    setSelectedUsers(item);
+                    toggleDelete();
+                  }}
+                />
+              </div>
+            ),
           });
           if (item.recieveEmail === "Yes") {
             csvdata.push({
@@ -96,8 +131,8 @@ const ViewUser = (props) => {
             });
           }
         });
-        console.log("data", data);
-        console.log("csvdat", csvdata);
+        // console.log("data", data);
+        // console.log("csvdat", csvdata);
         setData(data);
         setCsvData(csvdata);
       })
@@ -157,6 +192,25 @@ const ViewUser = (props) => {
         <ModalBody>
           <AddUser />
         </ModalBody>
+      </Modal>
+      <Modal isOpen={modalDelete} toggle={toggleDelete}>
+        <ModalHeader toggle={toggleDelete}>Delete User?</ModalHeader>
+        <ModalBody>
+          Are you sure you want to delete the User "{selectedUsers.firstName}"?
+        </ModalBody>
+        <ModalFooter>
+          <Button
+            color="primary"
+            onClick={() => {
+              handleDelete(selectedUsers._id);
+            }}
+          >
+            Yes
+          </Button>{" "}
+          <Button color="secondary" onClick={toggleDelete}>
+            No
+          </Button>
+        </ModalFooter>
       </Modal>
     </div>
   );

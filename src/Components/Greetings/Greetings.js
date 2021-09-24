@@ -12,7 +12,7 @@ const Greetings = () => {
         </div>
       </div>
       <div className="row mt-2">
-        <h1>Thank you for your answers</h1>
+        <h1 className="thanks">Thank you for your answers</h1>
       </div>
       <div className="row mt-3">
         <Link to="/consentform">

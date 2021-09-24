@@ -126,7 +126,10 @@ const ConsentFormSpanish = (props) => {
               <div class="card card-sty">
                 <div class="card-body">
                   <div class="mb-3 row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">
+                    <label
+                      for="staticEmail"
+                      class="col-sm-2 col-form-label alignn"
+                    >
                       Apellido
                     </label>
                     <div class="col-sm-9">
@@ -146,7 +149,10 @@ const ConsentFormSpanish = (props) => {
                     </div>
                   </div>
                   <div class="mb-3 row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">
+                    <label
+                      for="staticEmail"
+                      class="col-sm-2 col-form-label alignn"
+                    >
                       Primer Nombre
                     </label>
                     <div class="col-sm-9">
@@ -166,7 +172,10 @@ const ConsentFormSpanish = (props) => {
                     </div>
                   </div>
                   <div class="mb-3 row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">
+                    <label
+                      for="staticEmail"
+                      class="col-sm-2 col-form-label alignn"
+                    >
                       Correo Electronico
                     </label>
                     <div class="col-sm-9">
@@ -187,8 +196,21 @@ const ConsentFormSpanish = (props) => {
                   </div>
                 </div>
               </div>
-              <div className="row"></div>
-              <div class="card col-8 add-fam">
+              <div className="row card card-sty">
+                <div class="card-body col-12 add-fam">
+                  <span className="mb-2">
+                    <b>Alumno/Alumna (s)</b>
+                  </span>
+                  <div class="input-group mb-3">
+                    <InputList
+                      setFamilyDetails={setFamilyDetails}
+                      familyDetails={familyDetails}
+                      // editable={editable}
+                    />
+                  </div>
+                </div>
+              </div>
+              {/* <div class="card col-8 add-fam">
                 <span className="mb-2">
                   <b>Alumno/Alumna (s)</b>
                 </span>
@@ -198,22 +220,8 @@ const ConsentFormSpanish = (props) => {
                     familyDetails={familyDetails}
                     // editable={editable}
                   />
-                  {/* <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Apellido, nombre de pila"
-                    aria-label="Recipient's username"
-                    aria-describedby="button-addon2"
-                  /> */}
-                  {/* <button
-                    class="btn btn-success"
-                    type="button"
-                    id="button-addon2"
-                  >
-                    Agregar
-                  </button> */}
                 </div>
-              </div>
+              </div> */}
 
               <div class="col d-flex justify-content-center mt-3">
                 <button

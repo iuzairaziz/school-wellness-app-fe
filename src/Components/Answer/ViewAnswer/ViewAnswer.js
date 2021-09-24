@@ -37,26 +37,7 @@ const ViewAnswer = (props) => {
       //   field: "QuestionFour",
       //   sort: "true",
       // },
-      {
-        label: "Answer 1",
-        field: "AnswerOne",
-        sort: "asc",
-      },
-      {
-        label: "Answer 2",
-        field: "AnswerTwo",
-        sort: "asc",
-      },
-      {
-        label: "Answer 3",
-        field: "AnswerThree",
-        sort: "asc",
-      },
-      {
-        label: "Answer 4",
-        field: "AnswerFour",
-        sort: "asc",
-      },
+
       {
         label: "Date",
         field: "createdAt",
@@ -64,11 +45,12 @@ const ViewAnswer = (props) => {
         // width: 100,
       },
       {
-        label: "User",
-        field: "user",
-        sort: "asc",
+        label: "Time",
+        field: "Time",
+        // sort: "asc",
         // width: 100,
       },
+
       {
         label: "Name",
         field: "LastName",
@@ -96,6 +78,32 @@ const ViewAnswer = (props) => {
         field: "Purpose",
         sort: "disabled",
         // width: 150,
+      },
+      {
+        label: "User",
+        field: "user",
+        sort: "asc",
+        // width: 100,
+      },
+      {
+        label: "Answer 1",
+        field: "AnswerOne",
+        sort: "asc",
+      },
+      {
+        label: "Answer 2",
+        field: "AnswerTwo",
+        sort: "asc",
+      },
+      {
+        label: "Answer 3",
+        field: "AnswerThree",
+        sort: "asc",
+      },
+      {
+        label: "Answer 4",
+        field: "AnswerFour",
+        sort: "asc",
       },
     ],
     rows: [],
@@ -143,81 +151,32 @@ const ViewAnswer = (props) => {
             createdAt: item.createdAt
               ? moment(item.createdAt).format("LL")
               : "none",
+            Time: item.createdAt
+              ? moment(item.createdAt).format("h:mm")
+              : "none",
             Phone: item.Phone ? item.Phone : "none",
             Purpose: item.Purpose ? item.Purpose : "none",
             PersonComp: item.PersonComp ? item.PersonComp : "none",
             LastName: item.LastName ? item.LastName : "none",
             user: item.user ? item.user.email : "none",
             Grade: item.Grade ? item.Grade : "none",
-            // QuestionFour: item.question.QuestionFour
-            //   ? item.question.QuestionFour && (
-            //       <Editor
-            //         toolbarClassName="toolbarClassName"
-            //         wrapperClassName="wrapperClassName"
-            //         editorClassName="editorClass"
-            //         toolbarStyle={{ display: "none" }}
-            //         readOnly
-            //         editorState={EditorState.createWithContent(
-            //           convertFromRaw(JSON.parse(item.question.QuestionFour))
-            //         )}
-            //       />
-            //     )
-            //   : "none",
-            // QuestionThree: item.question.QuestionThree
-            //   ? item.question.QuestionThree && (
-            //       <Editor
-            //         toolbarClassName="toolbarClassName"
-            //         wrapperClassName="wrapperClassName"
-            //         editorClassName="editorClass"
-            //         toolbarStyle={{ display: "none" }}
-            //         readOnly
-            //         editorState={EditorState.createWithContent(
-            //           convertFromRaw(JSON.parse(item.question.QuestionThree))
-            //         )}
-            //       />
-            //     )
-            //   : "none",
-            // QuestionTwo: item.question.QuestionTwo
-            //   ? item.question.QuestionTwo && (
-            //       <Editor
-            //         toolbarClassName="toolbarClassName"
-            //         wrapperClassName="wrapperClassName"
-            //         editorClassName="editorClass"
-            //         toolbarStyle={{ display: "none" }}
-            //         readOnly
-            //         editorState={EditorState.createWithContent(
-            //           convertFromRaw(JSON.parse(item.question.QuestionTwo))
-            //         )}
-            //       />
-            //     )
-            //   : "none",
-            // QuestionOne: item.question.QuestionOne
-            //   ? item.question.QuestionOne && (
-            //       <Editor
-            //         toolbarClassName="toolbarClassName"
-            //         wrapperClassName="wrapperClassName"
-            //         editorClassName="editorClass"
-            //         toolbarStyle={{ display: "none" }}
-            //         readOnly
-            //         editorState={EditorState.createWithContent(
-            //           convertFromRaw(JSON.parse(item.question.QuestionOne))
-            //         )}
-            //       />
-            //     )
-            //   : "none",
           });
           csvdata.push({
-            AnswerOne: item.AnswerOne ? item.AnswerOne : "none",
-            AnswerTwo: item.AnswerTwo ? item.AnswerTwo : "none",
-            AnswerThree: item.AnswerThree ? item.AnswerThree : "none",
-            AnswerFour: item.AnswerFour ? item.AnswerFour : "none",
             Date: item.createdAt ? moment(item.createdAt).format("LL") : "none",
-            User: item.user ? item.user.email : "none",
+            Time: item.createdAt
+              ? moment(item.createdAt).format("h:mm")
+              : "none",
+
             Name: item.LastName ? item.LastName : "none",
             Grade: item.Grade ? item.Grade : "none",
             Contact: item.Phone ? item.Phone : "none",
             PersonCompleting: item.PersonComp ? item.PersonComp : "none",
             Reason: item.Purpose ? item.Purpose : "none",
+            User: item.user ? item.user.email : "none",
+            AnswerOne: item.AnswerOne ? item.AnswerOne : "none",
+            AnswerTwo: item.AnswerTwo ? item.AnswerTwo : "none",
+            AnswerThree: item.AnswerThree ? item.AnswerThree : "none",
+            AnswerFour: item.AnswerFour ? item.AnswerFour : "none",
           });
         });
         setData(data);

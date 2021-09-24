@@ -38,37 +38,18 @@ const ViewSpanishAnswer = (props) => {
       //   sort: "true",
       // },
       {
-        label: "Answer 1",
-        field: "AnswerOne",
-        sort: "asc",
-      },
-      {
-        label: "Answer 2",
-        field: "AnswerTwo",
-        sort: "asc",
-      },
-      {
-        label: "Answer 3",
-        field: "AnswerThree",
-        sort: "asc",
-      },
-      {
-        label: "Answer 4",
-        field: "AnswerFour",
-        sort: "asc",
-      },
-      {
         label: "Date",
         field: "createdAt",
         sort: "asc",
         // width: 100,
       },
       {
-        label: "User",
-        field: "user",
+        label: "Time",
+        field: "Time",
         sort: "asc",
         // width: 100,
       },
+
       {
         label: "Name",
         field: "LastName",
@@ -95,6 +76,32 @@ const ViewSpanishAnswer = (props) => {
         field: "Purpose",
         sort: "disabled",
         // width: 150,
+      },
+      {
+        label: "User",
+        field: "user",
+        sort: "asc",
+        // width: 100,
+      },
+      {
+        label: "Answer 1",
+        field: "AnswerOne",
+        sort: "asc",
+      },
+      {
+        label: "Answer 2",
+        field: "AnswerTwo",
+        sort: "asc",
+      },
+      {
+        label: "Answer 3",
+        field: "AnswerThree",
+        sort: "asc",
+      },
+      {
+        label: "Answer 4",
+        field: "AnswerFour",
+        sort: "asc",
       },
     ],
     rows: [],
@@ -134,6 +141,12 @@ const ViewSpanishAnswer = (props) => {
         res.data.map((item, index) => {
           data.rows.push({
             id: item._id,
+            createdAt: item.createdAt
+              ? moment(item.createdAt).format("LL")
+              : "none",
+            Time: item.createdAt
+              ? moment(item.createdAt).format("h:mm")
+              : "none",
             AnswerFour: item.AnswerFour ? item.AnswerFour : "none",
             AnswerThree: item.AnswerThree ? item.AnswerThree : "none",
             AnswerTwo: item.AnswerTwo ? item.AnswerTwo : "none",
@@ -163,68 +176,23 @@ const ViewSpanishAnswer = (props) => {
             //       />
             //     )
             //   : "none",
-            // QuestionThree: item.questionSpanish.QuestionThree
-            //   ? item.questionSpanish.QuestionThree && (
-            //       <Editor
-            //         toolbarClassName="toolbarClassName"
-            //         wrapperClassName="wrapperClassName"
-            //         editorClassName="editorClass"
-            //         toolbarStyle={{ display: "none" }}
-            //         readOnly
-            //         editorState={EditorState.createWithContent(
-            //           convertFromRaw(
-            //             JSON.parse(item.questionSpanish.QuestionThree)
-            //           )
-            //         )}
-            //       />
-            //     )
-            //   : "none",
-            // QuestionTwo: item.questionSpanish.QuestionTwo
-            //   ? item.questionSpanish.QuestionTwo && (
-            //       <Editor
-            //         toolbarClassName="toolbarClassName"
-            //         wrapperClassName="wrapperClassName"
-            //         editorClassName="editorClass"
-            //         toolbarStyle={{ display: "none" }}
-            //         readOnly
-            //         editorState={EditorState.createWithContent(
-            //           convertFromRaw(
-            //             JSON.parse(item.questionSpanish.QuestionTwo)
-            //           )
-            //         )}
-            //       />
-            //     )
-            //   : "none",
-            // QuestionOne: item.questionSpanish.QuestionOne
-            //   ? item.questionSpanish.QuestionOne && (
-            //       <Editor
-            //         toolbarClassName="toolbarClassName"
-            //         wrapperClassName="wrapperClassName"
-            //         editorClassName="editorClass"
-            //         toolbarStyle={{ display: "none" }}
-            //         readOnly
-            //         editorState={EditorState.createWithContent(
-            //           convertFromRaw(
-            //             JSON.parse(item.questionSpanish.QuestionOne)
-            //           )
-            //         )}
-            //       />
-            //     )
-            //   : "none",
           });
 
           csvdata.push({
-            AnswerOne: item.AnswerOne ? item.AnswerOne : "none",
-            AnswerTwo: item.AnswerTwo ? item.AnswerTwo : "none",
-            AnswerThree: item.AnswerThree ? item.AnswerThree : "none",
-            AnswerFour: item.AnswerFour ? item.AnswerFour : "none",
             Date: item.createdAt ? moment(item.createdAt).format("LL") : "none",
-            User: item.user ? item.user.email : "none",
+            Time: item.createdAt
+              ? moment(item.createdAt).format("h:mm")
+              : "none",
             Name: item.LastName ? item.LastName : "none",
             Grade: item.Grade ? item.Grade : "none",
             Contact: item.Phone ? item.Phone : "none",
             PersonCompleting: item.PersonComp ? item.PersonComp : "none",
             Reason: item.Purpose ? item.Purpose : "none",
+            User: item.user ? item.user.email : "none",
+            AnswerOne: item.AnswerOne ? item.AnswerOne : "none",
+            AnswerTwo: item.AnswerTwo ? item.AnswerTwo : "none",
+            AnswerThree: item.AnswerThree ? item.AnswerThree : "none",
+            AnswerFour: item.AnswerFour ? item.AnswerFour : "none",
           });
         });
         setData(data);
