@@ -92,18 +92,18 @@ const AppRoutes = [
     exact: true,
     name: "public",
   },
-  {
-    path: "/answer/add",
-    component: AddAnswer,
-    exact: true,
-    name: "public",
-  },
-  {
-    path: "/answer-spanish/add",
-    component: AddSpanishAnswer,
-    exact: true,
-    name: "public",
-  },
+  // {
+  //   path: "/answer/add",
+  //   component: AddAnswer,
+  //   exact: true,
+  //   name: "public",
+  // },
+  // {
+  //   path: "/answer-spanish/add",
+  //   component: AddSpanishAnswer,
+  //   exact: true,
+  //   name: "public",
+  // },
   {
     path: "/answer-spanish/add/:userId/:userName",
     component: AddSpanishAnswer,

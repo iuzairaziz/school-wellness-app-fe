@@ -82,10 +82,7 @@ const ConsentFormSpanish = (props) => {
         </p>
         <p>
           Información adicional sobre privacidad:
-          <a
-            href="https://safebusinesssolutions.com/privacy-policy"
-            target="_blank"
-          >
+          <a href="https://safebusinesssolutions.com/" target="_blank">
             {" "}
             Privacy Policy | Safe Business Solutions Thru Customer Service.
           </a>
