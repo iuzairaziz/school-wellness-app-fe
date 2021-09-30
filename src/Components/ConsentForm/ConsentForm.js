@@ -199,18 +199,17 @@ const ConsentForm = (props) => {
                   </div>
                 </div>
               </div>
-              <div className="row">
-                <div class="card col-12 add-fam">
-                  <span className="mb-2">
-                    <b>Student(s)</b>
-                  </span>
-                  <div class="input-group mb-3">
-                    <InputList
-                      setFamilyDetails={setFamilyDetails}
-                      familyDetails={familyDetails}
-                      // editable={editable}
-                    />
-                  </div>
+              <div className="row"></div>
+              <div class="card col-12 add-fam">
+                <span className="mb-2">
+                  <b>Family Member(s)</b>
+                </span>
+                <div class="input-group mb-3">
+                  <InputList
+                    setFamilyDetails={setFamilyDetails}
+                    familyDetails={familyDetails}
+                    // editable={editable}
+                  />
                 </div>
               </div>
 

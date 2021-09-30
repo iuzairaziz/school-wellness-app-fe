@@ -4,12 +4,12 @@ import { AiOutlineMinusCircle } from "react-icons/ai";
 import "./InputCreate.scss";
 
 const InputCreate = (props) => {
-  // console.log("id", props.familyDetails);
+  console.log("id", props.familyDetails);
   return props.familyDetails.map((val, idx) => {
     let familyDetails = `familyDetails-${idx}`;
 
     return (
-      <div className="form-row dynamicInput" key={val.index}>
+      <div className=" dynamicInput" key={val.index}>
         <div className="row">
           <div className="col-10">
             {/* <label>Family Member Name</label> */}
@@ -44,7 +44,7 @@ const InputCreate = (props) => {
                 className="btn btn-danger mb-1"
                 onClick={() => {
                   props.delete(val);
-                  // console.log(props.editable);
+                  console.log(props.editable);
                 }}
               >
                 <AiOutlineMinusCircle size={25} />
