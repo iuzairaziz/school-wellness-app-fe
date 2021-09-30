@@ -10,34 +10,29 @@ const Header = (props) => {
   return (
     <div class="header">
       <nav class="navbar navbar-light bg-light">
-        <div class="col-11 imgg">
+        <div class="col-10 imgg">
           {" "}
           <img src={Logo} alt="" width="100" height="100" />
         </div>
-        <div class="col-1">
-          <div class="row m-0">
-            <div class="col-6 Logout">
-              <b
-                onClick={() => {
-                  adminServices.logout();
-                  history.push("/login");
-                }}
-              >
-                Logout
-              </b>
-            </div>
-            <div class="col-3">
-              {" "}
-              <FiLogOut
-                size={30}
-                width={10}
-                class="logout-logo"
-                onClick={() => {
-                  adminServices.logout();
-                  history.push("/login");
-                }}
-              />
-            </div>
+        <div class="col-2">
+          <div class="col Logout">
+            <b
+              onClick={() => {
+                adminServices.logout();
+                history.push("/login");
+              }}
+            >
+              Logout
+            </b>
+            <FiLogOut
+              size={30}
+              width={10}
+              class="logout-logo"
+              onClick={() => {
+                adminServices.logout();
+                history.push("/login");
+              }}
+            />
           </div>
         </div>
       </nav>

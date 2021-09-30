@@ -7,16 +7,12 @@
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     margin: 0 !important;
-  }
-  .logout-logo {
-    // margin-right: 3rem;
-    // color: #c5971d !important;
-    color: black !important;
-    cursor: pointer;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
   .Logout {
-    display: flex;
-    align-items: center;
     cursor: pointer;
+    text-align: end;
+    color: black;
   }
 }
