@@ -1,5 +1,5 @@
 class Configuration {
-  apiBaseUrl = "school-wellness-app-be-ydzx4.ondigitalocean.app/";
+  apiBaseUrl = "https://school-wellness-app-be-mfx4q.ondigitalocean.app/";
   // apiBaseUrl = "http://localhost:8080/";
 }
 
