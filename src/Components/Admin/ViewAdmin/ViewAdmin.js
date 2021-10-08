@@ -81,13 +81,15 @@ const ViewAdmin = (props) => {
             firstName: item.firstName ? item.firstName : "none",
             action: (
               <div className="row flex-nowrap">
-                <MdDelete
-                  className="mdi mdi-delete-forever iconsS my-danger-icon"
-                  onClick={() => {
-                    setSelectedAdmin(item);
-                    toggleDelete();
-                  }}
-                />
+               {LoggedUser.userRole === "SuperAdmin" ? (
+                  <MdDelete
+                    className="mdi mdi-delete-forever iconsS my-danger-icon"
+                    onClick={() => {
+                      setSelectedAdmin(item);
+                      toggleDelete();
+                    }}
+                  />
+                ) : null}
               </div>
             ),
           });
@@ -120,7 +122,7 @@ const ViewAdmin = (props) => {
           </div>
         </div>
       ) : null}
-
+      <div className="mt-4">
       <MDBDataTableV5
         responsive
         striped
@@ -133,6 +135,7 @@ const ViewAdmin = (props) => {
         data={dataa}
         theadColor="#000"
       />
+          </div>
       <Modal isOpen={modalEdit} toggle={toggleEdit}>
         <ModalHeader toggle={toggleEdit}>Add New Admin</ModalHeader>
         <ModalBody>
