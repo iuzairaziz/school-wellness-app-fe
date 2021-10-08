@@ -10,6 +10,7 @@ import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { MDBDataTableV5, MDBBtn } from "mdbreact";
 import { CSVLink } from "react-csv";
+import $ from "jquery";
 
 const ViewSpanishAnswer = (props) => {
   const [applyfilter, setApplyFilter] = useState("");
@@ -111,6 +112,32 @@ const ViewSpanishAnswer = (props) => {
   useEffect(() => {
     getAllQuestions(applyfilter);
   }, [modalDelete, applyfilter]);
+
+  const changeColor = () => {
+    $("tbody > tr").each(function (index) {
+      // console.log("trs", this);
+      var ninth = $(this).children("td").eq(9).text();
+      var eight = $(this).children("td").eq(8).text();
+      var ten = $(this).children("td").eq(10).text();
+      var eleven = $(this).children("td").eq(11).text();
+      var finalNinth = parseInt(ninth);
+      var finalEight = parseInt(eight);
+      console.log("eight", eight, ninth, ten, eleven);
+      if (
+        !(eight === "Yes" && ninth === "No" && ten === "No" && eleven === "No")
+      ) {
+        $(this).css("color", "red");
+      } else {
+        $(this).css("color", "black");
+      }
+    });
+  };
+  $(document).ready(function () {
+    changeColor();
+    $(document).on("click", "th", function () {
+      changeColor();
+    });
+  });
 
   const toggleDelete = () => setModalDelete(!modalDelete);
 
