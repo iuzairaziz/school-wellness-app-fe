@@ -75,9 +75,10 @@ const ConsentForm = (props) => {
           helping us to keep our campus safe.
           <a href="https://www.oag.ca.gov/privacy/ccpa" target="_blank">
             Please review your data/wireless plan for any applicable charges and
-            your rights under the California Consumer Privacy Act (CCPA) | State
-            of California - Department of Justice - Office of the Attorney
-            General.
+            your rights under the California Consumer Privacy Act (CCPA) |
+          </a>
+ <a href="https://www.oag.ca.gov/privacy/ccpa" target="_blank">
+          State of California - Department of Justice - Office of the Attorney General.
           </a>
         </p>
         <p>
