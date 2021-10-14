@@ -16,7 +16,7 @@ const Greetings = () => {
       </div>
       <div className="row mt-2 datee">
         <h3>{moment(date).format("MMMM Do YYYY, h:mm a")}</h3>
-        <h1 className="thanks">Thank you for your answers</h1>
+        <h1 className="thanks">Thank you</h1>
       </div>
       <div className="row mt-3">
         <Link to="/consentform">
