@@ -211,7 +211,7 @@ const ConsentForm = (props) => {
                 </div>
               </div>
 
-              <div class="col d-flex justify-content-center mt-3">
+              <div class="col d-flex justify-content-center mt-3 safari">
                 <button
                   type="button"
                   class="btn btn-success btn-lg"
