@@ -72,12 +72,9 @@ const ConsentFormSpanish = (props) => {
           Christian School's para utiliazr la información que provee por medio
           de esta aplicación automática, con motivo de monitorear la salud de
           todos los individuos como se indica en los requerimientos de reporte
-          sobre el virus Covid-19.
-          <a href="https://www.oag.ca.gov/privacy/ccpa" target="_blank">
-            Gracias por ayudarnos a mantener nuestros
+          sobre el virus Covid-19. Gracias por ayudarnos a mantener nuestros
           edificios a salvo. Por favor revise su plan de datos/wifi por posibles
-          costos asi como tambien sus derechos en |
-          </a>
+          costos asi como tambien sus derechos en | 
  <a href="https://www.oag.ca.gov/privacy/ccpa" target="_blank">
             California Consumer Privacy Act (CCPA) State of California -
             Department of Justice - Office of the Attorney General
