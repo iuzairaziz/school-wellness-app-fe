@@ -92,25 +92,6 @@ const AddAnswer = (props) => {
             <div class="heading">
               <img src={Logo} height="200" width="200" alt="logo" />
             </div>
-//             <div className="row bt-set">
-//               <div className="col bt-sett">
-//                 <div class="btn-group">
-//                   <a
-//                     href="#"
-//                     class="btn btn-primary active"
-//                     aria-current="page"
-//                   >
-//                     English
-//                   </a>
-//                   <a
-//                     href={`/answer-spanish/add/${userId}/${userName}`}
-//                     class="btn btn-primary btc"
-//                   >
-//                     Spanish
-//                   </a>
-//                 </div>
-//               </div>
-//             </div>
             <div class="cardd ml-10 q-form">
               <h5>COVID-19 ACTIVE SCREENING QUESTIONNAIRE</h5>
               <h6 className="mb-4">
