@@ -47,28 +47,28 @@ const Sidebar = (props) => {
             Add Questions
             <Link to="/question/add" />
           </MenuItem>
-          <MenuItem>
-            Add Spanish Questions
-            <Link to="/question-spanish/add" />
-          </MenuItem>
+//           <MenuItem>
+//             Add Spanish Questions
+//             <Link to="/question-spanish/add" />
+//           </MenuItem>
           <MenuItem>
             View Questions
             <Link to="/question" />
           </MenuItem>
-          <MenuItem>
-            View Spanish Questions
-            <Link to="/question-spanish" />
-          </MenuItem>
+//           <MenuItem>
+//             View Spanish Questions
+//             <Link to="/question-spanish" />
+//           </MenuItem>
         </SubMenu>
         <SubMenu title="Answer" icon={<RiQuestionAnswerFill size={20} />}>
           <MenuItem>
             User Response
             <Link to="/answer" />
           </MenuItem>
-          <MenuItem>
-            User Spanish Response
-            <Link to="/answer-spanish" />
-          </MenuItem>
+//           <MenuItem>
+//             User Spanish Response
+//             <Link to="/answer-spanish" />
+//           </MenuItem>
         </SubMenu>
       </Menu>
     </ProSidebar>
