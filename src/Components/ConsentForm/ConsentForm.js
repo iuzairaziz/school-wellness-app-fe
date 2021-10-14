@@ -42,29 +42,29 @@ const ConsentForm = (props) => {
           <img src={Logo} height="200" width="200" alt="logo" />
         </div>
       </div>
-      <div className="row bt-set">
-        <div className="col bt-sett">
-          <div class="btn-group">
-            <a href="#" class="btn btn-primary active" aria-current="page">
-              English
-            </a>
-            <Link
-              to={
-                userId
-                  ? `/consentform-spanish/${userId}/${firstName}/${lastName}/${email}`
-                  : `/consentform-spanish`
-              }
-            >
-              <a
-                // href={`/consentform-spanish/${userId}/${firstName}/${lastName}/${email}`}
-                class="btn btn-primary btc"
-              >
-                Spanish
-              </a>
-            </Link>
-          </div>
-        </div>
-      </div>
+//       <div className="row bt-set">
+//         <div className="col bt-sett">
+//           <div class="btn-group">
+//             <a href="#" class="btn btn-primary active" aria-current="page">
+//               English
+//             </a>
+//             <Link
+//               to={
+//                 userId
+//                   ? `/consentform-spanish/${userId}/${firstName}/${lastName}/${email}`
+//                   : `/consentform-spanish`
+//               }
+//             >
+//               <a
+//                 // href={`/consentform-spanish/${userId}/${firstName}/${lastName}/${email}`}
+//                 class="btn btn-primary btc"
+//               >
+//                 Spanish
+//               </a>
+//             </Link>
+//           </div>
+//         </div>
+//       </div>
 
       <div class="row gappp">
         <p>
