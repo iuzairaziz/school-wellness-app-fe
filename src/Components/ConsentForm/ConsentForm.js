@@ -42,29 +42,6 @@ const ConsentForm = (props) => {
           <img src={Logo} height="200" width="200" alt="logo" />
         </div>
       </div>
-//       <div className="row bt-set">
-//         <div className="col bt-sett">
-//           <div class="btn-group">
-//             <a href="#" class="btn btn-primary active" aria-current="page">
-//               English
-//             </a>
-//             <Link
-//               to={
-//                 userId
-//                   ? `/consentform-spanish/${userId}/${firstName}/${lastName}/${email}`
-//                   : `/consentform-spanish`
-//               }
-//             >
-//               <a
-//                 // href={`/consentform-spanish/${userId}/${firstName}/${lastName}/${email}`}
-//                 class="btn btn-primary btc"
-//               >
-//                 Spanish
-//               </a>
-//             </Link>
-//           </div>
-//         </div>
-//       </div>
 
       <div class="row gappp">
         <p>
@@ -72,10 +49,13 @@ const ConsentForm = (props) => {
           of the information you provide by means of this automated app for
           purposes of monitoring your health (and other family members) as it
           applies to the Covid 19 virus reporting requirements. Thank you for
-          helping us to keep our campus safe. Please review your data/wireless plan for any applicable charges and
-            your rights under the California Consumer Privacy Act (CCPA) |
- <a href="https://www.oag.ca.gov/privacy/ccpa" target="_blank">
-          State of California - Department of Justice - Office of the Attorney General.
+          helping us to keep our campus safe. Please review your data/wireless
+          plan for any applicable charges and your rights under the California
+          Consumer Privacy Act (CCPA) |
+          <a href="https://www.oag.ca.gov/privacy/ccpa" target="_blank">
+            {" "}
+            State of California - Department of Justice - Office of the Attorney
+            General.
           </a>
         </p>
         <p>
