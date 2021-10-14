@@ -72,11 +72,8 @@ const ConsentForm = (props) => {
           of the information you provide by means of this automated app for
           purposes of monitoring your health (and other family members) as it
           applies to the Covid 19 virus reporting requirements. Thank you for
-          helping us to keep our campus safe.
-          <a href="https://www.oag.ca.gov/privacy/ccpa" target="_blank">
-            Please review your data/wireless plan for any applicable charges and
+          helping us to keep our campus safe. Please review your data/wireless plan for any applicable charges and
             your rights under the California Consumer Privacy Act (CCPA) |
-          </a>
  <a href="https://www.oag.ca.gov/privacy/ccpa" target="_blank">
           State of California - Department of Justice - Office of the Attorney General.
           </a>
