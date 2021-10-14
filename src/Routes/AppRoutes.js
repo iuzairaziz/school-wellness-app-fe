@@ -18,6 +18,8 @@ import AddSpanishAnswer from "../Components/Answer/AddAnswer/AddSpanishAnswer";
 import AddSpanishQuestion from "../Components/Questionore/AddQuestion/AddSpanishQuestion";
 import ViewSpanishQuestion from "../Components/Questionore/ViewQuestions/ViewSpanishQuestion";
 import ViewSpanishAnswer from "../Components/Answer/ViewAnswer/ViewSpanishAnswer";
+import AnsGreetings from "../Components/Greetings/AnsGreetings";
+
 
 const AppRoutes = [
   {
@@ -68,24 +70,24 @@ const AppRoutes = [
     exact: true,
     name: "public",
   },
-  {
-    path: "/consentform-spanish",
-    component: ConsentFormSpanish,
-    exact: true,
-    name: "public",
-  },
+//   {
+//     path: "/consentform-spanish",
+//     component: ConsentFormSpanish,
+//     exact: true,
+//     name: "public",
+//   },
   {
     path: "/consentform/:userId/:firstName/:lastName/:email",
     component: ConsentForm,
     exact: true,
     name: "public",
   },
-  {
-    path: "/consentform-spanish/:userId/:firstName/:lastName/:email",
-    component: ConsentFormSpanish,
-    exact: true,
-    name: "public",
-  },
+//   {
+//     path: "/consentform-spanish/:userId/:firstName/:lastName/:email",
+//     component: ConsentFormSpanish,
+//     exact: true,
+//     name: "public",
+//   },
   {
     path: "/answer/add/:userId/:userName",
     component: AddAnswer,
@@ -104,15 +106,21 @@ const AppRoutes = [
   //   exact: true,
   //   name: "public",
   // },
+//   {
+//     path: "/answer-spanish/add/:userId/:userName",
+//     component: AddSpanishAnswer,
+//     exact: true,
+//     name: "public",
+//   },
   {
-    path: "/answer-spanish/add/:userId/:userName",
-    component: AddSpanishAnswer,
+    path: "/greeting",
+    component: Greetings,
     exact: true,
     name: "public",
   },
   {
-    path: "/greeting",
-    component: Greetings,
+    path: "/ans/greeting",
+    component: AnsGreetings,
     exact: true,
     name: "public",
   },
@@ -128,36 +136,36 @@ const AppRoutes = [
     exact: true,
     name: "private",
   },
-  {
-    path: "/question-spanish/add",
-    component: AddSpanishQuestion,
-    exact: true,
-    name: "private",
-  },
+//   {
+//     path: "/question-spanish/add",
+//     component: AddSpanishQuestion,
+//     exact: true,
+//     name: "private",
+//   },
   {
     path: "/question",
     component: ViewQuestion,
     exact: true,
     name: "private",
   },
-  {
-    path: "/question-spanish",
-    component: ViewSpanishQuestion,
-    exact: true,
-    name: "private",
-  },
+//   {
+//     path: "/question-spanish",
+//     component: ViewSpanishQuestion,
+//     exact: true,
+//     name: "private",
+//   },
   {
     path: "/answer",
     component: ViewAnswer,
     exact: true,
     name: "private",
   },
-  {
-    path: "/answer-spanish",
-    component: ViewSpanishAnswer,
-    exact: true,
-    name: "private",
-  },
+//   {
+//     path: "/answer-spanish",
+//     component: ViewSpanishAnswer,
+//     exact: true,
+//     name: "private",
+//   },
 ];
 
 export default AppRoutes;
