@@ -79,12 +79,12 @@ const ConsentForm = (props) => {
         onSubmit={(values, actions) => {
           console.log("Valuessss", values);
           userServices
-            .addUser({
+            .addUserDirect({
               firstName: values.firstName,
               lastName: values.lastName,
               email: values.email,
               recieveEmail: consent === true ? "Yes" : "No",
-              userId: userId,
+              // userId: userId,
               familyMembers: familyDetails,
             })
             .then((res) => {

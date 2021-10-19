@@ -14,9 +14,17 @@ class UserServices {
     return axios.post(this.config.apiBaseUrl + "user", formData);
   }
 
+  addUserDirect(formData) {
+    return axios.post(this.config.apiBaseUrl + "user/add", formData);
+  }
+
   getUsers = () => {
     return axios.get(this.config.apiBaseUrl + "user");
   };
+
+  updateUserEdit(id, formData) {
+    return axios.put(this.config.apiBaseUrl + "user/" + id, formData);
+  }
 
   getUserById(id) {
     return axios.get(this.config.apiBaseUrl + "user/" + id);

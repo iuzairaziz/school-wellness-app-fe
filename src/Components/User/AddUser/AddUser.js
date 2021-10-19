@@ -7,17 +7,30 @@ import { toast } from "react-toastify";
 
 const AddUser = (props) => {
   let sideBarState = props.state;
+  const editable = props.editable;
+  const user = props.admin;
 
   return (
     <Formik
       initialValues={{
-        firstName: "",
-        lastName: "",
-        email: "",
+        firstName: editable && user.firstName,
+        lastName: editable && user.lastName,
+        email: editable && user.email,
       }}
       validationSchema={userValidation.newUserbyAdminValidation}
       onSubmit={(values, actions) => {
         console.log("Valuessss", values);
+        editable
+        ? userServices
+            .updateUserEdit(user._id, {
+              firstName: values.firstName,
+              lastName: values.lastName,
+              email: values.email,
+            })
+            .then((res) => {
+              userServices.handleCustomMessage("Updated Successfully");
+            })
+        :
         userServices
           .addUser({
             firstName: values.firstName,

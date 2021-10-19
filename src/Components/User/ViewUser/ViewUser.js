@@ -9,12 +9,16 @@ import { CSVLink } from "react-csv";
 import { MDBDataTableV5, MDBBtn } from "mdbreact";
 import moment from "moment";
 import { MdDelete } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
+
 
 const ViewUser = (props) => {
   const [modalEdit, setModalEdit] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const [modalDelete, setModalDelete] = useState(false);
 
   const toggleEdit = () => setModalEdit(!modalEdit);
+  const toggleOpen = () => setModalOpen(!modalOpen);
   const toggleDelete = () => setModalDelete(!modalDelete);
 
   const [familyData, setFamilyData] = useState();
@@ -104,7 +108,8 @@ const ViewUser = (props) => {
                 })
               : "none",
             action: (
-              <div className="row flex-nowrap">
+              <div className="row">
+              <div>
                 <MdDelete
                   size={25}
                   className="mdi mdi-delete-forever iconsS my-danger-icon"
@@ -113,7 +118,16 @@ const ViewUser = (props) => {
                     toggleDelete();
                   }}
                 />
+
+                <FaEdit
+                  className="mdi mdi-delete-forever iconsS my-danger-icon"
+                  onClick={() => {
+                    setSelectedUsers(item);
+                    toggleEdit();
+                  }}
+                />
               </div>
+            </div>
             ),
           });
           if (item.recieveEmail === "Yes") {
@@ -161,7 +175,7 @@ const ViewUser = (props) => {
                 type="button"
                 class="btn btn-success btn-lg"
                 onClick={() => {
-                  toggleEdit();
+                  toggleOpen();
                 }}
               >
                 Add User
@@ -188,7 +202,13 @@ const ViewUser = (props) => {
         </div>
       </div>
       <Modal isOpen={modalEdit} toggle={toggleEdit}>
-        <ModalHeader toggle={toggleEdit}>Add New User</ModalHeader>
+        <ModalHeader toggle={toggleEdit}>Edit User</ModalHeader>
+        <ModalBody>
+          <AddUser editable={true} admin={selectedUsers} toggle={toggleEdit} />
+        </ModalBody>
+      </Modal>
+      <Modal isOpen={modalOpen} toggle={toggleOpen}>
+        <ModalHeader toggle={toggleOpen}>Add New User</ModalHeader>
         <ModalBody>
           <AddUser />
         </ModalBody>

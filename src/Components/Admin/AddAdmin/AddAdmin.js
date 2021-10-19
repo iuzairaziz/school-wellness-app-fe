@@ -7,20 +7,40 @@ import { toast } from "react-toastify";
 
 const AddAdmin = (props) => {
   let sideBarState = props.state;
+  const editable = props.editable;
+  const admin = props.admin;
 
   return (
     <Formik
       initialValues={{
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-        // userRole: "",
+        firstName: editable && admin.firstName,
+        lastName: editable && admin.lastName,
+        email: editable && admin.email,
+        password: editable && admin.password,
+        confirmPassword: editable && admin.password,
       }}
       validationSchema={adminValidation.newAdminValidation}
       onSubmit={(values, actions) => {
         console.log("Valuessss", values);
+        editable
+        ? adminService
+            .updateAllUserFields(
+              admin._id,
+              values.firstName,
+              values.lastName,
+              values.email,
+              values.password
+            )
+            .then((res) => {
+              adminService.handleMessage("Updated Admin");
+              props.toggle();
+              // console.log("res", res);
+            })
+            .catch((err) => {
+              adminService.handleCustomMessage(err.response.data);
+              props.toggle();
+            })
+        :
         adminService
           .register(
             values.firstName,
@@ -162,7 +182,7 @@ const AddAdmin = (props) => {
                 </span>
               </div>
             </div>
-            <div className="mb-3 row">
+            {editable ? null : <div className="mb-3 row">
               <label
                 for="inputPassword"
                 className={`${
@@ -191,7 +211,8 @@ const AddAdmin = (props) => {
                     props.errors.confirmPassword}
                 </span>
               </div>
-            </div>
+            </div>}
+            
             <div className="d-flex justify-content-center bt-sub">
               <button
                 type="button"

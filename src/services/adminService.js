@@ -79,15 +79,15 @@ class AdminServices {
   deleteUsers(id) {
     return axios.delete(this.config.apiBaseUrl + "admin/" + id);
   }
-
-  updateAllUserFields = (id, firstName, lastName, email, password) =>
-    axios.put(
-      this.config.apiBaseUrl + `admin/${id}`,
+  updateAllUserFields = (id, firstName, lastName, email, password) => {
+    console.log("service", id, firstName, lastName, email, password);
+    return axios.put(this.config.apiBaseUrl + `admin/update-admin/${id}`, {
       firstName,
       lastName,
       email,
-      password
-    );
+      password,
+    });
+  };
 
   isUserRole = (array) => {
     let user = this.userLoggedInInfo();
