@@ -9,6 +9,8 @@ const AddUser = (props) => {
   let sideBarState = props.state;
   const editable = props.editable;
   const user = props.admin;
+  const toggleEdit = props.toggleEdit;
+  const toggleOpen = props.toggleOpen;
 
   return (
     <Formik
@@ -29,6 +31,7 @@ const AddUser = (props) => {
             })
             .then((res) => {
               userServices.handleCustomMessage("Updated Successfully");
+              toggleEdit && toggleEdit()
             })
         :
         userServices
@@ -39,6 +42,7 @@ const AddUser = (props) => {
           })
           .then((res) => {
             userServices.handleCustomMessage("Registration Successfully");
+            toggleOpen && toggleOpen()
           })
           .catch((err) => {
             toast.error(err.response.data, {
@@ -137,6 +141,7 @@ const AddUser = (props) => {
                 type="button"
                 className="btn btn-outline-primary btn-lg"
                 onClick={props.handleSubmit}
+                
               >
                 Submit
               </button>

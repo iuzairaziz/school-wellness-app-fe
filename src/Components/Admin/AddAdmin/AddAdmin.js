@@ -9,6 +9,8 @@ const AddAdmin = (props) => {
   let sideBarState = props.state;
   const editable = props.editable;
   const admin = props.admin;
+  const toggleEdit = props.toggleEdit;
+  const toggleOpen = props.toggleOpen;
 
   return (
     <Formik
@@ -34,7 +36,8 @@ const AddAdmin = (props) => {
             .then((res) => {
               adminService.handleMessage("Updated Admin");
               props.toggle();
-              // console.log("res", res);
+              toggleEdit && toggleEdit()
+              // console.log("res", res);?
             })
             .catch((err) => {
               adminService.handleCustomMessage(err.response.data);
@@ -51,6 +54,7 @@ const AddAdmin = (props) => {
           )
           .then((res) => {
             adminService.handleCustomMessage("Registration Successfully");
+            toggleOpen && toggleOpen()
             // this.props.history.push("/");
             // window.location.reload();
           })

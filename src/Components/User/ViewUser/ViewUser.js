@@ -80,7 +80,7 @@ const ViewUser = (props) => {
 
   useEffect(() => {
     getAdmin();
-  }, [modalEdit, modalDelete]);
+  }, [modalEdit, modalDelete, modalOpen]);
 
   const getAdmin = () => {
     userServices
@@ -204,13 +204,13 @@ const ViewUser = (props) => {
       <Modal isOpen={modalEdit} toggle={toggleEdit}>
         <ModalHeader toggle={toggleEdit}>Edit User</ModalHeader>
         <ModalBody>
-          <AddUser editable={true} admin={selectedUsers} toggle={toggleEdit} />
+          <AddUser editable={true} admin={selectedUsers} toggleEdit={toggleEdit} toggle={toggleEdit} />
         </ModalBody>
       </Modal>
       <Modal isOpen={modalOpen} toggle={toggleOpen}>
         <ModalHeader toggle={toggleOpen}>Add New User</ModalHeader>
         <ModalBody>
-          <AddUser />
+          <AddUser toggleOpen={toggleOpen}/>
         </ModalBody>
       </Modal>
       <Modal isOpen={modalDelete} toggle={toggleDelete}>
