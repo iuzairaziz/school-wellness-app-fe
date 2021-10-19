@@ -186,7 +186,7 @@ const AddAdmin = (props) => {
                 </span>
               </div>
             </div>
-            {editable ? null : <div className="mb-3 row">
+             <div className="mb-3 row">
               <label
                 for="inputPassword"
                 className={`${
@@ -215,7 +215,7 @@ const AddAdmin = (props) => {
                     props.errors.confirmPassword}
                 </span>
               </div>
-            </div>}
+            </div>
             
             <div className="d-flex justify-content-center bt-sub">
               <button
