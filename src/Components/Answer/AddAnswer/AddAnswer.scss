@@ -1,6 +1,16 @@
-.add-ans {
-  margin-left: 1rem;
+.add-ans{
   margin-right: 1rem;
+  margin-left: 1rem;
+  // margin-top: 2rem;
+}
+.heading {
+  display: flex;
+  justify-content: center;
+}
+@media screen and (min-width: 480px) {
+.add-ans {
+  margin-left: 5rem;
+  margin-right: 5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   // padding-top: 5rem;
@@ -20,6 +30,9 @@
       background-color: #618bc8;
     }
   }
+  .f-size{
+    font-weight: 600;
+  }
   .numInput {
     width: 92%;
     margin-left: 1rem;
@@ -29,4 +42,5 @@
     // padding-right: 6rem;
     padding-top: 2rem;
   }
+}
 }
