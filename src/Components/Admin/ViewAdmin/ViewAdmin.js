@@ -89,6 +89,7 @@ const ViewAdmin = (props) => {
                   <div>
                     <MdDelete
                       className="mdi mdi-delete-forever iconsS my-danger-icon"
+                      size={20}
                       onClick={() => {
                         setSelectedAdmin(item);
                         toggleDelete();
@@ -97,6 +98,7 @@ const ViewAdmin = (props) => {
 
                     <FaEdit
                       className="mdi mdi-delete-forever iconsS my-danger-icon"
+                      size={20}
                       onClick={() => {
                         setSelectedAdmin(item);
                         toggleEdit();
