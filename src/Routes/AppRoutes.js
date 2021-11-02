@@ -19,7 +19,7 @@ import AddSpanishQuestion from "../Components/Questionore/AddQuestion/AddSpanish
 import ViewSpanishQuestion from "../Components/Questionore/ViewQuestions/ViewSpanishQuestion";
 import ViewSpanishAnswer from "../Components/Answer/ViewAnswer/ViewSpanishAnswer";
 import AnsGreetings from "../Components/Greetings/AnsGreetings";
-
+import addRemoveFamilyMemeber from "../Components/addRemoveFamilyMemeber/addRemoveFamilyMemeber";
 
 const AppRoutes = [
   {
@@ -70,24 +70,24 @@ const AppRoutes = [
     exact: true,
     name: "public",
   },
-//   {
-//     path: "/consentform-spanish",
-//     component: ConsentFormSpanish,
-//     exact: true,
-//     name: "public",
-//   },
+  //   {
+  //     path: "/consentform-spanish",
+  //     component: ConsentFormSpanish,
+  //     exact: true,
+  //     name: "public",
+  //   },
   {
     path: "/consentform/:userId/:firstName/:lastName/:email",
     component: ConsentForm,
     exact: true,
     name: "public",
   },
-//   {
-//     path: "/consentform-spanish/:userId/:firstName/:lastName/:email",
-//     component: ConsentFormSpanish,
-//     exact: true,
-//     name: "public",
-//   },
+  //   {
+  //     path: "/consentform-spanish/:userId/:firstName/:lastName/:email",
+  //     component: ConsentFormSpanish,
+  //     exact: true,
+  //     name: "public",
+  //   },
   {
     path: "/answer/add/:userId/:userName",
     component: AddAnswer,
@@ -106,12 +106,12 @@ const AppRoutes = [
   //   exact: true,
   //   name: "public",
   // },
-//   {
-//     path: "/answer-spanish/add/:userId/:userName",
-//     component: AddSpanishAnswer,
-//     exact: true,
-//     name: "public",
-//   },
+  //   {
+  //     path: "/answer-spanish/add/:userId/:userName",
+  //     component: AddSpanishAnswer,
+  //     exact: true,
+  //     name: "public",
+  //   },
   {
     path: "/greeting",
     component: Greetings,
@@ -136,36 +136,42 @@ const AppRoutes = [
     exact: true,
     name: "private",
   },
-//   {
-//     path: "/question-spanish/add",
-//     component: AddSpanishQuestion,
-//     exact: true,
-//     name: "private",
-//   },
+  //   {
+  //     path: "/question-spanish/add",
+  //     component: AddSpanishQuestion,
+  //     exact: true,
+  //     name: "private",
+  //   },
   {
     path: "/question",
     component: ViewQuestion,
     exact: true,
     name: "private",
   },
-//   {
-//     path: "/question-spanish",
-//     component: ViewSpanishQuestion,
-//     exact: true,
-//     name: "private",
-//   },
+  //   {
+  //     path: "/question-spanish",
+  //     component: ViewSpanishQuestion,
+  //     exact: true,
+  //     name: "private",
+  //   },
   {
     path: "/answer",
     component: ViewAnswer,
     exact: true,
     name: "private",
   },
-//   {
-//     path: "/answer-spanish",
-//     component: ViewSpanishAnswer,
-//     exact: true,
-//     name: "private",
-//   },
+  {
+    path: "/add-familymember/:id",
+    component: addRemoveFamilyMemeber,
+    exact: true,
+    name: "public",
+  },
+  //   {
+  //     path: "/answer-spanish",
+  //     component: ViewSpanishAnswer,
+  //     exact: true,
+  //     name: "private",
+  //   },
 ];
 
 export default AppRoutes;
