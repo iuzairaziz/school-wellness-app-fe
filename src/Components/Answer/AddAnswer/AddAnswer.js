@@ -10,16 +10,28 @@ import { convertFromRaw, EditorState } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import MaskInput from "react-maskinput";
+import userServices from "../../../services/userService";
 
 const AddAnswer = (props) => {
   const [data, setDataa] = useState([]);
+  const [userInfo, setUserInfo] = useState([]);
+  const [userName, setUserName] = useState([]);
+
   const history = useHistory();
   let userId = props.match.params.userId;
-  let userName = props.match.params.userName;
   console.log("ID ddddd", data);
   useEffect(() => {
     getQuestion();
+    getUser();
+    setUserName(props.match.params.userName);
   }, []);
+
+  const getUser = () => {
+    userServices.getSingleUser(userId).then((res) => {
+      setUserInfo(res.data);
+      console.log("User Info", res.data);
+    });
+  };
 
   const getQuestion = () => {
     currentQuestionServices
@@ -81,7 +93,10 @@ const AddAnswer = (props) => {
             data[0].userName
           )
           .then((res) => {
-            history.push("/ans/greeting");
+            history.push({
+              pathname: "/ans/greeting",
+              state: { user: userInfo, userName: userName },
+            });
             currentQuestionServices.handleCustomMessage("Added Successfully");
           });
       }}

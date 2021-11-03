@@ -21,6 +21,7 @@ const InputCreate = (props) => {
               name="familyDetails"
               data-id={idx}
               id={familyDetails}
+              defaultValue={props.familyDetails[idx].familyDetails}
             />
           </div>
           {/* <div className="d-flex justify-content-end col-2 p-4"> */}
