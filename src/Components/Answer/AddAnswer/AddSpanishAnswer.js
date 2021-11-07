@@ -52,7 +52,8 @@ const AddSpanishAnswer = (props) => {
         AnswerThree: "",
         AnswerFour: "",
         // Name: "",
-        LastName: props.match.params ? props.match.params.userName : "",
+        LastName: "",
+        FirstName: "",
         Phone: "",
         PersonComp: "",
         Purpose: "",
@@ -80,7 +81,8 @@ const AddSpanishAnswer = (props) => {
             values.Purpose,
             props.match.params.userId,
             props.match.params.userName.match,
-            userName
+            userName,
+            values.FirstName
           )
           .then((res) => {
             history.push("/greeting");
@@ -336,12 +338,29 @@ const AddSpanishAnswer = (props) => {
                         name="LastName"
                         className="form-control"
                         id="staticLastName"
-                        placeholder="Last Name, First Name"
-                        value={props.values.LastName}
+                        placeholder="Last Name"
                         onChange={props.handleChange("LastName")}
                       />
                       <span id="err" className="invalid-feedback">
                         {props.touched.LastName && props.errors.LastName}
+                      </span>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">
+                        Vorname
+                      </label>
+                      <input
+                        disabled
+                        type="text"
+                        onBlur={props.handleBlur}
+                        name="FirstName"
+                        className="form-control"
+                        id="staticFirstName"
+                        placeholder="First Name"
+                        onChange={props.handleChange("FirstName")}
+                      />
+                      <span id="err" className="invalid-feedback">
+                        {props.touched.FirstName && props.errors.FirstName}
                       </span>
                     </div>
                     <div class="mb-3">

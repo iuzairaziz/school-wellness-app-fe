@@ -53,8 +53,13 @@ const ViewAnswer = (props) => {
       },
 
       {
-        label: "Name",
+        label: "Last Name",
         field: "LastName",
+        sort: "asc",
+      },
+      {
+        label: "First Name",
+        field: "FirstName",
         sort: "asc",
       },
       {
@@ -113,31 +118,31 @@ const ViewAnswer = (props) => {
   useEffect(() => {
     getAllQuestions(applyfilter);
   }, [modalDelete, applyfilter]);
-  const changeColor = () => {
-    $("tbody > tr").each(function (index) {
-      // console.log("trs", this);
-      var ninth = $(this).children("td").eq(9).text();
-      var eight = $(this).children("td").eq(8).text();
-      var ten = $(this).children("td").eq(10).text();
-      var eleven = $(this).children("td").eq(11).text();
-      var finalNinth = parseInt(ninth);
-      var finalEight = parseInt(eight);
-      console.log("eight", eight, ninth, ten, eleven);
-      if (
-        !(eight === "Yes" && ninth === "No" && ten === "No" && eleven === "No")
-      ) {
-        $(this).css("color", "red");
-      } else {
-        $(this).css("color", "black");
-      }
-    });
-  };
-  $(document).ready(function () {
-    changeColor();
-    $(document).on("click", "th", function () {
-      changeColor();
-    });
-  });
+  // const changeColor = () => {
+  //   $("tbody > tr").each(function (index) {
+  //     // console.log("trs", this);
+  //     var ninth = $(this).children("td").eq(9).text();
+  //     var eight = $(this).children("td").eq(8).text();
+  //     var ten = $(this).children("td").eq(10).text();
+  //     var eleven = $(this).children("td").eq(11).text();
+  //     var finalNinth = parseInt(ninth);
+  //     var finalEight = parseInt(eight);
+  //     console.log("eight", eight, ninth, ten, eleven);
+  //     if (
+  //       !(eight === "Yes" && ninth === "No" && ten === "No" && eleven === "No")
+  //     ) {
+  //       $(this).css("color", "red");
+  //     } else {
+  //       $(this).css("color", "black");
+  //     }
+  //   });
+  // };
+  // $(document).ready(function () {
+  //   changeColor();
+  //   $(document).on("click", "th", function () {
+  //     changeColor();
+  //   });
+  // });
 
   const toggleDelete = () => setModalDelete(!modalDelete);
 
@@ -184,6 +189,7 @@ const ViewAnswer = (props) => {
             Purpose: item.Purpose ? item.Purpose : "none",
             PersonComp: item.PersonComp ? item.PersonComp : "none",
             LastName: item.LastName ? item.LastName : "none",
+            FirstName: item.FirstName ? item.FirstName : "none",
             user: item.user ? item.user.email : "none",
             Grade: item.Grade ? item.Grade : "none",
           });
@@ -193,7 +199,8 @@ const ViewAnswer = (props) => {
               ? moment(item.createdAt).format("h:mm")
               : "none",
 
-            Name: item.LastName ? item.LastName : "none",
+            LastName: item.LastName ? item.LastName : "none",
+            FirstName: item.FirstName ? item.FirstName : "none",
             Grade: item.Grade ? item.Grade : "none",
             Contact: item.Phone ? item.Phone : "none",
             PersonCompleting: item.PersonComp ? item.PersonComp : "none",

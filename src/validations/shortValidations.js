@@ -15,6 +15,7 @@ class ShortValidation {
       AnswerFour: Yup.string().required("Required!"),
       // Name: Yup.string().required("Required"),
       LastName: Yup.string().required("Required!"),
+      FirstName: Yup.string().required("Required!"),
       Grade: Yup.string().required("Required"),
       Phone: Yup.string().required("Required"),
       PersonComp: Yup.string().required("Required"),
