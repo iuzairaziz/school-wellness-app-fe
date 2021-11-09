@@ -39,7 +39,11 @@ const AddAdmin = (props) => {
         return (
           <div className="container add-admin">
             <h2 className="headings">Email Settings</h2>
-            <div>
+            <h6>
+              Note : Date Selected Below Users Will Not Receive Remainder Emails
+              On Selected Dates
+            </h6>
+            <div className="bt-sub">
               <label>Select Dates</label>
               <MultipleDatePicker
                 onSubmit={(dates) => {
