@@ -9,6 +9,7 @@ import {
   BsFillPersonFill,
   BsQuestionSquareFill,
 } from "react-icons/bs";
+import { AiFillSetting } from "react-icons/ai";
 import { Router, Link } from "react-router-dom";
 
 const Sidebar = (props) => {
@@ -56,6 +57,12 @@ const Sidebar = (props) => {
           <MenuItem>
             User Response
             <Link to="/answer" />
+          </MenuItem>
+        </SubMenu>
+        <SubMenu title="Email Setting" icon={<AiFillSetting size={20} />}>
+          <MenuItem>
+            Email Setting
+            <Link to="/email-setting" />
           </MenuItem>
         </SubMenu>
       </Menu>

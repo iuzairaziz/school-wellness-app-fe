@@ -20,6 +20,7 @@ import ViewSpanishQuestion from "../Components/Questionore/ViewQuestions/ViewSpa
 import ViewSpanishAnswer from "../Components/Answer/ViewAnswer/ViewSpanishAnswer";
 import AnsGreetings from "../Components/Greetings/AnsGreetings";
 import addRemoveFamilyMemeber from "../Components/addRemoveFamilyMemeber/addRemoveFamilyMemeber";
+import emailSetting from "../Components/emailSettings/emailSettings";
 
 const AppRoutes = [
   {
@@ -166,6 +167,13 @@ const AppRoutes = [
     exact: true,
     name: "public",
   },
+  {
+    path: "/email-setting",
+    component: emailSetting,
+    exact: true,
+    name: "private",
+  },
+
   //   {
   //     path: "/answer-spanish",
   //     component: ViewSpanishAnswer,
