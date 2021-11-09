@@ -13,6 +13,9 @@ class QuestionServices {
   addDates(formData) {
     return axios.post(this.config.apiBaseUrl + "email-setting", formData);
   }
+  deleteDates(formData) {
+    return axios.delete(this.config.apiBaseUrl + "email-setting");
+  }
 
   handleMessage(type) {
     if (type === "add") toast("Successfully Registered!");

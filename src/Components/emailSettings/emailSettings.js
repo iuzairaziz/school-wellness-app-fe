@@ -40,8 +40,8 @@ const AddAdmin = (props) => {
           <div className="container add-admin">
             <h2 className="headings">Email Settings</h2>
             <h6>
-              Note : Date Selected Below Users Will Not Receive Remainder Emails
-              On Selected Dates
+              Note : Users Will Not Receive Remainder Emails On Selected Dates
+              Below
             </h6>
             <div className="bt-sub">
               <label>Select Dates</label>
@@ -57,13 +57,34 @@ const AddAdmin = (props) => {
             </div>
 
             <div className="d-flex justify-content-center bt-sub">
-              <button
-                type="button"
-                onClick={props.handleSubmit}
-                className="btn btn-outline-primary btn-lg"
-              >
-                Submit
-              </button>
+              <div className="align-button">
+                <button
+                  type="button"
+                  onClick={props.handleSubmit}
+                  className="btn btn-outline-primary btn-md bt-1"
+                >
+                  Submit
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    emailSettingService
+                      .deleteDates()
+                      .then((res) => {
+                        console.log(res);
+                        emailSettingService.handleCustomMessage(res.data);
+                      })
+                      .catch((err) => {
+                        toast.error(err.response.data, {
+                          position: toast.POSITION.TOP_RIGHT,
+                        });
+                      });
+                  }}
+                  className="btn btn-outline-danger btn-md bt-2"
+                >
+                  Reset
+                </button>
+              </div>
             </div>
             {console.log(sideBarState)}
           </div>
