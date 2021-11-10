@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./emailSetting.scss";
 import { Formik, setNestedObjectValues } from "formik";
 import adminValidation from "../../validations/adminValidation";
@@ -14,6 +14,38 @@ const AddAdmin = (props) => {
   const toggleEdit = props.toggleEdit;
   const toggleOpen = props.toggleOpen;
   const [date, setDate] = useState([]);
+  const [datesShow, setDatesShow] = useState([]);
+  const [datesAdd, setDatesAdd] = useState(false);
+
+  const toggleDatesAdd = () => {
+    setDatesAdd(!datesAdd);
+    console.log("Datesssss Adddddd", datesAdd);
+  };
+
+  useEffect(() => {
+    console.log("chaneged");
+    getEmailSettings();
+  }, [datesAdd]);
+
+  const getEmailSettings = () => {
+    emailSettingService
+      .getDates()
+      .then((res) => {
+        let data = [];
+        console.log(res.data);
+        if (res.data.length !== 0) {
+          res.data[0].Date.map((item, index) => {
+            data.push(moment(item).format("Do MMMM YYYY"));
+          });
+        }
+        console.log("data", data);
+        setDatesShow(data);
+      })
+
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <Formik
@@ -26,6 +58,8 @@ const AddAdmin = (props) => {
         emailSettingService
           .addDates({ Date: date })
           .then((res) => {
+            toggleDatesAdd();
+            window.location.reload();
             emailSettingService.handleCustomMessage("Setting Saved");
           })
           .catch((err) => {
@@ -39,10 +73,22 @@ const AddAdmin = (props) => {
         return (
           <div className="container add-admin">
             <h2 className="headings">Email Settings</h2>
+
             <h6>
               Note : Users Will Not Receive Remainder Emails On Selected Dates
               Below
             </h6>
+
+            {datesShow.length === 0 ? (
+              <div>No Dates To Display</div>
+            ) : (
+              <div>
+                <h6>Dates Selected</h6>
+                {datesShow.map((item) => (
+                  <div>{item}</div>
+                ))}
+              </div>
+            )}
             <div className="bt-sub">
               <label>Select Dates</label>
               <MultipleDatePicker
@@ -72,6 +118,8 @@ const AddAdmin = (props) => {
                       .deleteDates()
                       .then((res) => {
                         console.log(res);
+                        toggleDatesAdd();
+                        window.location.reload();
                         emailSettingService.handleCustomMessage(res.data);
                       })
                       .catch((err) => {

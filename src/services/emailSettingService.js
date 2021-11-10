@@ -10,6 +10,10 @@ class QuestionServices {
     this.config = new Configuration();
   }
 
+  getDates() {
+    return axios.get(this.config.apiBaseUrl + "email-setting");
+  }
+
   addDates(formData) {
     return axios.post(this.config.apiBaseUrl + "email-setting", formData);
   }

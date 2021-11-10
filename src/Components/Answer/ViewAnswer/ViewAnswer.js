@@ -53,13 +53,8 @@ const ViewAnswer = (props) => {
       },
 
       {
-        label: "Last Name",
+        label: "Name",
         field: "LastName",
-        sort: "asc",
-      },
-      {
-        label: "First Name",
-        field: "FirstName",
         sort: "asc",
       },
       {
@@ -189,7 +184,7 @@ const ViewAnswer = (props) => {
             Purpose: item.Purpose ? item.Purpose : "none",
             PersonComp: item.PersonComp ? item.PersonComp : "none",
             LastName: item.LastName ? item.LastName : "none",
-            FirstName: item.FirstName ? item.FirstName : "none",
+            // FirstName: item.FirstName ? item.FirstName : "none",
             user: item.user ? item.user.email : "none",
             Grade: item.Grade ? item.Grade : "none",
           });
@@ -199,8 +194,8 @@ const ViewAnswer = (props) => {
               ? moment(item.createdAt).format("h:mm")
               : "none",
 
-            LastName: item.LastName ? item.LastName : "none",
-            FirstName: item.FirstName ? item.FirstName : "none",
+            Name: item.LastName ? item.LastName : "none",
+            // FirstName: item.FirstName ? item.FirstName : "none",
             Grade: item.Grade ? item.Grade : "none",
             Contact: item.Phone ? item.Phone : "none",
             PersonCompleting: item.PersonComp ? item.PersonComp : "none",
