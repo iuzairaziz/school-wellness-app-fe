@@ -323,7 +323,7 @@ const AddAnswer = (props) => {
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label f-size">
-                        Enter Last Name
+                        Enter Name
                       </label>
                       <input
                         type="text"
