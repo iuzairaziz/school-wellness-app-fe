@@ -168,34 +168,25 @@ const ViewAnswer = (props) => {
             createdAt: item.createdAt
               ? moment(item.createdAt).format("LL")
               : "none",
-            Time: item.createdAt
-              ? moment(item.createdAt).format("h:mm")
-              : "none",
             Phone: item.Phone ? item.Phone : "none",
             Purpose: item.Purpose ? item.Purpose : "none",
             PersonComp: item.PersonComp ? item.PersonComp : "none",
             LastName: item.LastName ? item.LastName : "none",
-            // FirstName: item.FirstName ? item.FirstName : "none",
             user: item.user ? item.user.email : "none",
             Grade: item.Grade ? item.Grade : "none",
           });
           csvdata.push({
-            Date: item.createdAt ? moment(item.createdAt).format("LL") : "none",
-            Time: item.createdAt
-              ? moment(item.createdAt).format("h:mm")
-              : "none",
-
-            Name: item.LastName ? item.LastName : "none",
-            // FirstName: item.FirstName ? item.FirstName : "none",
-            Grade: item.Grade ? item.Grade : "none",
-            Contact: item.Phone ? item.Phone : "none",
-            PersonCompleting: item.PersonComp ? item.PersonComp : "none",
-            Reason: item.Purpose ? item.Purpose : "none",
-            User: item.user ? item.user.email : "none",
             AnswerOne: item.AnswerOne ? item.AnswerOne : "none",
             AnswerTwo: item.AnswerTwo ? item.AnswerTwo : "none",
             AnswerThree: item.AnswerThree ? item.AnswerThree : "none",
             AnswerFour: item.AnswerFour ? item.AnswerFour : "none",
+            Date: item.createdAt ? moment(item.createdAt).format("LL") : "none",
+            User: item.user ? item.user.email : "none",
+            Name: item.LastName ? item.LastName : "none",
+            Grade: item.Grade ? item.Grade : "none",
+            Contact: item.Phone ? item.Phone : "none",
+            PersonCompleting: item.PersonComp ? item.PersonComp : "none",
+            Reason: item.Purpose ? item.Purpose : "none",
           });
         });
         setData(data);
