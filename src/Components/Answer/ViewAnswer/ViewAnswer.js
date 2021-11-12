@@ -38,7 +38,26 @@ const ViewAnswer = (props) => {
       //   field: "QuestionFour",
       //   sort: "true",
       // },
-
+      {
+        label: "Answer 1",
+        field: "AnswerOne",
+        sort: "asc",
+      },
+      {
+        label: "Answer 2",
+        field: "AnswerTwo",
+        sort: "asc",
+      },
+      {
+        label: "Answer 3",
+        field: "AnswerThree",
+        sort: "asc",
+      },
+      {
+        label: "Answer 4",
+        field: "AnswerFour",
+        sort: "asc",
+      },
       {
         label: "Date",
         field: "createdAt",
@@ -46,9 +65,9 @@ const ViewAnswer = (props) => {
         // width: 100,
       },
       {
-        label: "Time",
-        field: "Time",
-        // sort: "asc",
+        label: "User",
+        field: "user",
+        sort: "asc",
         // width: 100,
       },
 
@@ -80,32 +99,6 @@ const ViewAnswer = (props) => {
         sort: "disabled",
         // width: 150,
       },
-      {
-        label: "User",
-        field: "user",
-        sort: "asc",
-        // width: 100,
-      },
-      {
-        label: "Answer 1",
-        field: "AnswerOne",
-        sort: "asc",
-      },
-      {
-        label: "Answer 2",
-        field: "AnswerTwo",
-        sort: "asc",
-      },
-      {
-        label: "Answer 3",
-        field: "AnswerThree",
-        sort: "asc",
-      },
-      {
-        label: "Answer 4",
-        field: "AnswerFour",
-        sort: "asc",
-      },
     ],
     rows: [],
   });
@@ -113,31 +106,29 @@ const ViewAnswer = (props) => {
   useEffect(() => {
     getAllQuestions(applyfilter);
   }, [modalDelete, applyfilter]);
-  // const changeColor = () => {
-  //   $("tbody > tr").each(function (index) {
-  //     // console.log("trs", this);
-  //     var ninth = $(this).children("td").eq(9).text();
-  //     var eight = $(this).children("td").eq(8).text();
-  //     var ten = $(this).children("td").eq(10).text();
-  //     var eleven = $(this).children("td").eq(11).text();
-  //     var finalNinth = parseInt(ninth);
-  //     var finalEight = parseInt(eight);
-  //     console.log("eight", eight, ninth, ten, eleven);
-  //     if (
-  //       !(eight === "Yes" && ninth === "No" && ten === "No" && eleven === "No")
-  //     ) {
-  //       $(this).css("color", "red");
-  //     } else {
-  //       $(this).css("color", "black");
-  //     }
-  //   });
-  // };
-  // $(document).ready(function () {
-  //   changeColor();
-  //   $(document).on("click", "th", function () {
-  //     changeColor();
-  //   });
-  // });
+  const changeColor = () => {
+    $("tbody > tr").each(function (index) {
+      // console.log("trs", this);
+      var one = $(this).children("td").eq(1).text();
+      var zero = $(this).children("td").eq(0).text();
+      var two = $(this).children("td").eq(2).text();
+      var three = $(this).children("td").eq(3).text();
+      var finalone = parseInt(one);
+      var finalzero = parseInt(zero);
+      console.log("zero", zero, one, two, three);
+      if (!(zero === "Yes" && one === "No" && two === "No" && three === "No")) {
+        $(this).css("color", "red");
+      } else {
+        $(this).css("color", "black");
+      }
+    });
+  };
+  $(document).ready(function () {
+    changeColor();
+    $(document).on("click", "th", function () {
+      changeColor();
+    });
+  });
 
   const toggleDelete = () => setModalDelete(!modalDelete);
 
