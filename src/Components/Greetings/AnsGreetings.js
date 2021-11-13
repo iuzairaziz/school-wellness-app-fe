@@ -23,24 +23,24 @@ const AnsGreetings = () => {
         <h1 className="thanks">Thank you for your answers</h1>
       </div>
 
-      {location.state.user.familyMembers[0].familyDetails != "" ? (
-        <div className="row mt-3">
-          <button
-            onClick={() => {
-              history.push({
-                pathname: `/answer/add/${location.state.user._id}/${location.state.userName}`,
-                state: { familyMember: 1 },
-              });
-            }}
-            type="button"
-            class="btn btn-success btn-lg"
-          >
-            Fill Questionare For Family Member
-          </button>
-        </div>
-      ) : (
+      {/* {location.state.user.familyMembers[0].familyDetails != "" ? ( */}
+      <div className="row mt-3">
+        <button
+          onClick={() => {
+            history.push({
+              pathname: `/answer/add/${location.state.user._id}/${location.state.userName}`,
+              state: { familyMember: 1 },
+            });
+          }}
+          type="button"
+          class="btn btn-success btn-lg"
+        >
+          Fill Questionare For Family Member
+        </button>
+      </div>
+      {/* ) : (
         <div></div>
-      )}
+      )} */}
     </div>
   );
 };

@@ -19,7 +19,7 @@ const AddAnswer = (props) => {
 
   const history = useHistory();
   let userId = props.match.params.userId;
-  console.log("ID ddddd", data);
+  console.log("ID ddddd", props.match.params.userName);
   useEffect(() => {
     getQuestion();
     getUser();
