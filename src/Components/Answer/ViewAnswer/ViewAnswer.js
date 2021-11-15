@@ -172,7 +172,7 @@ const ViewAnswer = (props) => {
             Purpose: item.Purpose ? item.Purpose : "none",
             PersonComp: item.PersonComp ? item.PersonComp : "none",
             LastName: item.LastName ? item.LastName : "none",
-            user: item.user ? item.user.email : "none",
+            user: item.user ? item.user.email : "User Deleted",
             Grade: item.Grade ? item.Grade : "none",
           });
           csvdata.push({
@@ -181,7 +181,7 @@ const ViewAnswer = (props) => {
             AnswerThree: item.AnswerThree ? item.AnswerThree : "none",
             AnswerFour: item.AnswerFour ? item.AnswerFour : "none",
             Date: item.createdAt ? moment(item.createdAt).format("LL") : "none",
-            User: item.user ? item.user.email : "none",
+            User: item.user ? item.user.email : "User Deleted",
             Name: item.LastName ? item.LastName : "none",
             Grade: item.Grade ? item.Grade : "none",
             Contact: item.Phone ? item.Phone : "none",
