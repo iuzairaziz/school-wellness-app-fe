@@ -23,14 +23,15 @@ const Optout = (props) => {
       </div>
       <div className="row mt-2">
         <h1 className="thanks">Thank you for using our service</h1>
+        <h6 className="thanks">Successfully opted out from daily screening</h6>
       </div>
-      <div className="row mt-3">
+      {/* <div className="row mt-3">
         <Link to="/consentform">
           <button type="button" class="btn btn-success btn-lg">
             <b>+</b> Add Member
           </button>
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };
