@@ -126,7 +126,7 @@ const AppRoutes = [
     name: "public",
   },
   {
-    path: "/opt-out",
+    path: "/opt-out/:id",
     component: Optout,
     exact: true,
     name: "public",

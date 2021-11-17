@@ -9,6 +9,8 @@ import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { MDBDataTableV5, MDBBtn } from "mdbreact";
 import { CSVLink } from "react-csv";
+import { toast } from "react-toastify";
+
 import $ from "jquery";
 
 const ViewAnswer = (props) => {
@@ -115,7 +117,7 @@ const ViewAnswer = (props) => {
       var three = $(this).children("td").eq(3).text();
       var finalone = parseInt(one);
       var finalzero = parseInt(zero);
-      console.log("zero", zero, one, two, three);
+      // console.log("zero", zero, one, two, three);
       if (!(zero === "Yes" && one === "No" && two === "No" && three === "No")) {
         $(this).css("color", "red");
       } else {
@@ -133,20 +135,18 @@ const ViewAnswer = (props) => {
   const toggleDelete = () => setModalDelete(!modalDelete);
 
   const handleDelete = () => {
+    toggleDelete();
+
     answerService
       .deleteAnswers()
       .then((res) => {
-        if (res.data.deletedCount === 0) {
-          return answerService.handleMessage("noData");
-        } else {
-          answerService.handleMessage("delete");
-          toggleDelete();
-        }
+        console.log(res);
+        return answerService.handleCustomMessage(res.data);
       })
       .catch((err) => {
-        answerService.handleError();
-        toggleDelete();
-        console.log("err", err);
+        toast.error(err.response.data, {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       });
   };
 
@@ -284,7 +284,7 @@ const ViewAnswer = (props) => {
             </ModalHeader>
             <ModalBody>
               {" "}
-              <b>This will delete all user responses in the last month</b>
+              <b>This will delete all user responses</b>
               <br />
               Are you sure you want to delete responses?
             </ModalBody>
